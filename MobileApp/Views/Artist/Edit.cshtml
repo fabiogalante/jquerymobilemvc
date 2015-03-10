@@ -1,0 +1,30 @@
+﻿@model MobileApp.Models.Artist
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Altear o artista - @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    @Html.HiddenFor(model => model.ArtistId)
+
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+    
+    <input type="submit" value="Alterar" data-role="button" />
+}
+
+@Html.ActionLink("Voltar", "Index", null, new { data_role = "button" })
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

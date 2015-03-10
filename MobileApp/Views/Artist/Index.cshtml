@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MobileApp.Models.Artist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Artistas</h2>
+
+<label>Tema b</label>
+<a href="#" data-role="buttton" data-theme="b">Alterar</a>
+
+
+@Html.ActionLink("Novo artista", "Create", null, new { data_role = "button" })
+
+
+<ul data-role="listview" data-inset="true">
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.Name, "Details", new { Id = item.ArtistId })</li>
+    }
+</ul>
+
+

@@ -1,0 +1,21 @@
+﻿@model MobileApp.Models.Artist
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Excluir artista</h2>
+
+<h3>Tem certeza que deseja excluir?</h3>
+
+<span>@Html.DisplayFor(model => model.Name)</span>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <input type="submit" value="Excluir" data-role="button" />
+
+    @Html.ActionLink("Voltar", "Index", null, new { data_role = "button" })
+
+}
